@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOKIO7EVEN</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOKIO7EVEN</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Шапка -->
-  <header>
-    <div class="logo">TOKIO7EVEN</div>
-    <button id="admin-login-btn">Войти как админ</button>
-  </header>
+<header>
+  <div class="logo">TOKIO7EVEN</div>
+  <button id="admin-login-btn">Войти как админ</button>
+</header>
 
-  <!-- Основной контент -->
-  <main>
-    <!-- Левая панель навигации -->
-    <nav class="sidebar">
-      <div class="nav-item" data-page="leaderboard">Лидерборд</div>
-      <div class="nav-item" data-page="news">Новости</div>
-    </nav>
+<main>
+  <!-- Контент -->
+  <section class="content">
 
-    <!-- Контент -->
-    <section class="content">
-      <!-- Лидерборд -->
-      <div id="leaderboard" class="page active">
-        <h2>Топ-треки</h2>
-        <div class="track-list" id="track-list">
-          <!-- Треки добавляются динамически -->
-        </div>
-      </div>
-
-      <!-- Новости -->
-      <div id="news" class="page">
-        <h2>Новости</h2>
-        <div class="news-list" id="news-list">
-          <!-- Новости добавляются динамически -->
-        </div>
-      </div>
-
-      <!-- Панель администратора -->
-      <div id="admin-panel" class="page">
-        <h2>Админ панель</h2>
-        <div class="admin-section">
-          <h3>Оценка треков</h3>
-          <div id="admin-track-list">
-            <!-- Список треков для оценки -->
-          </div>
-        </div>
-        <div class="admin-section">
-          <h3>Публикация новости</h3>
-          <input type="text" id="news-title" placeholder="Заголовок">
-          <textarea id="news-text" placeholder="Текст новости"></textarea>
-          <input type="text" id="news-image" placeholder="URL изображения">
-          <button id="publish-news">Опубликовать новость</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Всплывающее окно логина -->
-  <div id="login-modal" class="modal">
-    <div class="modal-content">
-      <span id="close-login" class="close">&times;</span>
-      <h2>Вход администратора</h2>
-      <input type="text" id="login" placeholder="Логин">
-      <input type="password" id="password" placeholder="Пароль">
-      <button id="login-submit">Войти</button>
-      <div id="login-error" class="error"></div>
+    <!-- Лидерборд -->
+    <div id="leaderboard" class="page active">
+      <h2>Топ-треки</h2>
+      <div class="track-list" id="track-list"></div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Новости -->
+    <div id="news" class="page">
+      <h2>Новости</h2>
+      <div class="news-list" id="news-list"></div>
+    </div>
+
+    <!-- Плеер с оценкой -->
+    <div id="player-tab" class="page">
+      <h2>Плеер</h2>
+      <div id="player-track-list" class="track-list"></div>
+    </div>
+
+    <!-- Панель администратора -->
+    <div id="admin-panel" class="page">
+      <h2>Админ панель</h2>
+
+      <div class="admin-section">
+        <h3>Добавить трек</h3>
+        <input type="text" id="new-track-title" placeholder="Название трека">
+        <input type="text" id="new-track-audio" placeholder="URL аудио">
+        <button id="add-track">Добавить трек</button>
+      </div>
+
+      <div class="admin-section">
+        <h3>Оценка треков</h3>
+        <div id="admin-track-list"></div>
+      </div>
+
+      <div class="admin-section">
+        <h3>Добавить новость</h3>
+        <input type="text" id="news-title" placeholder="Заголовок">
+        <textarea id="news-text" placeholder="Текст новости"></textarea>
+        <input type="text" id="news-image" placeholder="URL изображения">
+        <button id="publish-news">Опубликовать новость</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Нижняя панель навигации -->
+  <nav class="bottom-nav">
+    <div class="nav-item" data-page="leaderboard">Лидерборд</div>
+    <div class="nav-item" data-page="news">Новости</div>
+    <div class="nav-item" data-page="player-tab">Плеер</div>
+  </nav>
+</main>
+
+<!-- Всплывающее окно логина -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-login" class="close">&times;</span>
+    <h2>Вход администратора</h2>
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button id="login-submit">Войти</button>
+    <div id="login-error" class="error"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
